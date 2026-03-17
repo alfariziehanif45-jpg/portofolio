@@ -1,53 +1,146 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Portofolio Saya</title>
-    <style>
-        body {
-            font-family: Arial;
-            background: linear-gradient(to right, #667eea, #764ba2);
-            margin: 0;
-            color: white;
-            text-align: center;
-        }
-        .container {
-            margin-top: 100px;
-        }
-        .card {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            margin: 20px auto;
-            width: 60%;
-            border-radius: 15px;
-        }
-        a {
-            color: yellow;
-            text-decoration: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Hanif</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body {
+    background: #0f172a;
+    color: white;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: #020617;
+}
+
+nav h1 {
+    color: cyan;
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+}
+
+.hero span {
+    color: cyan;
+}
+
+/* Section */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.card {
+    background: #1e293b;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+}
+</style>
+
 </head>
 <body>
 
-<div class="container">
-    <h1>Nama Kamu</h1>
-    <p>Web Developer | Mahasiswa</p>
+<!-- Navbar -->
+<nav>
+    <h1>HanifDev</h1>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skill">Skill</a>
+        <a href="#project">Project</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
 
+<!-- Hero -->
+<section class="hero">
+    <h1>Halo, Saya <span>Hanif</span></h1>
+    <p>Mahasiswa & Web Developer</p>
+</section>
+
+<!-- About -->
+<section id="about" class="section">
+    <h2>Tentang Saya</h2>
     <div class="card">
-        <h2>Skill</h2>
-        <p>HTML, CSS, PHP, MySQL</p>
+        <p>Saya adalah mahasiswa yang tertarik dalam dunia web development dan sedang belajar membuat aplikasi berbasis web.</p>
+    </div>
+</section>
+
+<!-- Skill -->
+<section id="skill" class="section">
+    <h2>Skill</h2>
+    <div class="card">HTML</div>
+    <div class="card">CSS</div>
+    <div class="card">PHP</div>
+    <div class="card">MySQL</div>
+</section>
+
+<!-- Project -->
+<section id="project" class="section">
+    <h2>Project</h2>
+    <div class="card">
+        <h3>Website CRUD Buku</h3>
+        <p>Aplikasi manajemen data buku menggunakan PHP & MySQL</p>
     </div>
 
     <div class="card">
-        <h2>Project</h2>
-        <p>Website CRUD Buku</p>
+        <h3>Website Portofolio</h3>
+        <p>Website pribadi yang menampilkan skill dan project</p>
     </div>
+</section>
 
+<!-- Contact -->
+<section id="contact" class="section">
+    <h2>Kontak</h2>
     <div class="card">
-        <h2>Kontak</h2>
         <p>Email: kamu@email.com</p>
+        <p>Instagram: @hanifalfarizie</p>
     </div>
-</div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 Hanif</p>
+</footer>
 
 </body>
 </html>
