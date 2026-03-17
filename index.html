@@ -341,6 +341,66 @@ nav a:hover {
 .card a:hover {
     text-decoration: underline;
 }
+.card p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.card b {
+    color: cyan;
+}
+nav button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background: cyan;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background: white;
+}
+/* ===== FLOATING LANGUAGE BUTTON ===== */
+.lang-switch {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #020617;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 999;
+    display: flex;
+    gap: 10px;
+}
+
+.lang-switch button {
+    background: cyan;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.lang-switch button:hover {
+    background: white;
+}
+
+/* 📱 HP */
+@media (max-width: 768px) {
+    .lang-switch {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px;
+    }
+
+    .lang-switch button {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+}
 </style>
 
 <!-- Intro Screen -->
@@ -362,6 +422,12 @@ nav a:hover {
         <a href="#contact">Contact</a>
     </div>
 </nav>
+
+<div class="lang-switch">
+    <button onclick="setLanguage('id')">ID</button>
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('jp')">JP</button>
+</div>
 
 <!-- Hero -->
 <!-- Profile -->
@@ -389,35 +455,21 @@ nav a:hover {
     <h2>Mengenai Saya</h2>
 
     <div class="card">
-        <p>
-           saya adalah mahasiswa yang sudah memiliki ketertarikan pada komputer,
-           dulu saya belum bisa sempat untuk mempelajari bidang komputer,
-           tapi sekarang saya udah alat yang mumpuni untuk belajar,
-           apalagi ke arah game/programmer.
-        </p>
-    </div>
+    <p id="about-text"></p>
+</div>
 
     <h2>Fun Fact</h2>
 
-    <div class="card">
-        <ul style="text-align:left; max-width:500px; margin:auto;">
-            <li>lebih suka coding dalam bantuk game</li>
-            <li>Lebih nyaman belajar lewat praktik langsung</li>
-            <li>Suka membuat game dengan konsep story dengan genre dark</li>
-        </ul>
-    </div>
+<div class="card">
+    <ul id="funfact-list" style="text-align:left; max-width:500px; margin:auto;">
+    </ul>
+</div>
 
     <h2>Cerita Singkat</h2>
 
     <div class="card">
-        <p>
-           semua ini dimulai ketika saya kecil,dimana dulu saya sering bermain game,
-           lantas dari situlah saya memiliki ketertarikan pada dunia komputer,
-           saya udah mencoba untuk membuat game tapi selalu gagal,
-           karena kurangnya pemahamman,tapi sekarang udah bisa,
-           walaupun belum sebgaus punya orang lain.
-        </p>
-    </div>
+    <p id="story-text"></p>
+</div>
 </section>
 
 <!-- Skill -->
@@ -553,6 +605,60 @@ function closeImage() {
 setTimeout(() => {
     document.getElementById("intro").style.display = "none";
 }, 4000);
+</script>
+
+<script>
+const data = {
+    id: {
+        about: "Saya adalah mahasiswa yang memiliki ketertarikan pada komputer. Dulu saya belum sempat mempelajari bidang komputer, tetapi sekarang saya sudah memiliki alat yang mumpuni untuk belajar, terutama di bidang game dan programming.",
+        funfact: [
+            "Lebih suka coding dalam bentuk game",
+            "Lebih nyaman belajar lewat praktik langsung",
+            "Suka membuat game dengan konsep story dengan genre dark"
+        ],
+        story: "Semua ini dimulai ketika saya kecil, dimana saya sering bermain game. Dari situlah ketertarikan saya pada dunia komputer muncul. Saya sudah mencoba membuat game, tetapi sering gagal karena kurangnya pemahaman. Sekarang saya sudah bisa, walaupun belum sebagus orang lain."
+    },
+
+    en: {
+        about: "I'm a student with an interest in computers. I didn't have the time to study computers before, but now I have the tools to learn, especially in the gaming and programming field.",
+        funfact: [
+            "Prefer coding in the form of games",
+            "More comfortable learning through direct practice",
+            "Enjoy creating story-based games with a dark genre"
+        ],
+        story: "It all started when I was little, playing games a lot. That's where my interest in computers developed. I've tried making games but often failed due to a lack of understanding. But now I can do it, although it's not as good as others."
+    },
+
+    jp: {
+        about: "私はコンピューターに興味のある学生です。以前は勉強する時間がありませんでしたが、今は学ぶ環境が整っています。特にゲームやプログラミングに興味があります。",
+        funfact: [
+            "ゲーム形式でのコーディングが好きです",
+            "実践を通して学ぶ方が得意です",
+            "ダークなストーリー系ゲームを作るのが好きです"
+        ],
+        story: "すべては幼い頃、ゲームをたくさんしていたことから始まりました。そこでコンピューターへの興味が芽生えました。ゲーム制作に挑戦しましたが、理解不足で何度も失敗しました。でも今は作れるようになりました。他の人ほど上手くはありませんが。"
+    }
+};
+
+function setLanguage(lang) {
+    // ABOUT
+    document.getElementById("about-text").innerText = data[lang].about;
+
+    // FUN FACT
+    let list = document.getElementById("funfact-list");
+    list.innerHTML = "";
+    data[lang].funfact.forEach(item => {
+        let li = document.createElement("li");
+        li.innerText = item;
+        list.appendChild(li);
+    });
+
+    // STORY
+    document.getElementById("story-text").innerText = data[lang].story;
+}
+
+// default
+setLanguage('id');
 </script>
 
 </body>
