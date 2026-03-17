@@ -237,6 +237,59 @@ nav a:hover {
     max-height: 80%;
     border-radius: 10px;
 }
+/* ===== PROJECT ===== */
+.project {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: #1e293b;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.project:hover {
+    transform: scale(1.03);
+}
+
+/* foto kiri */
+.project img {
+    width: 150px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* teks kanan */
+.project-text {
+    text-align: left;
+}
+
+.project-text h3 {
+    color: cyan;
+    margin-bottom: 10px;
+}
+
+.project-text p {
+    line-height: 1.6;
+}
+@media (max-width: 768px) {
+    .project {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .project-text {
+        text-align: center;
+    }
+
+    .project img {
+        width: 100%;
+        height: auto;
+    }
+}
 </style>
 
 </head>
@@ -365,17 +418,34 @@ nav a:hover {
 <!-- Project -->
 <section id="project" class="section">
     <h2>Project</h2>
-    <div class="card">
-        <h3>Website CRUD Buku</h3>
-        <p>Aplikasi manajemen data buku menggunakan PHP & MySQL</p>
+
+    <!-- Game 1 -->
+    <div class="project">
+        <img src="game1.jpg" alt="Game Dungeon">
+        <div class="project-text">
+            <h3>Game Dungeon Adventure (C++)</h3>
+            <p>
+                Game petualangan berbasis C++ dimana pemain menjelajahi dungeon,
+                melawan musuh, dan menemukan item tersembunyi. Setiap level
+                memiliki tantangan berbeda yang menguji strategi dan keberanian pemain.
+            </p>
+        </div>
     </div>
 
-    <div class="card">
-        <h3>Website Portofolio</h3>
-        <p>Website pribadi yang menampilkan skill dan project</p>
+    <!-- Game 2 -->
+    <div class="project">
+        <img src="game2.jpg" alt="Game Story">
+        <div class="project-text">
+            <h3>Game Story Choice (C++)</h3>
+            <p>
+                Game berbasis cerita interaktif dimana setiap pilihan pemain
+                akan menentukan alur cerita dan ending yang didapat. Game ini
+                memiliki banyak kemungkinan akhir yang berbeda.
+            </p>
+        </div>
     </div>
+
 </section>
-
 <!-- Contact -->
 <section id="contact" class="section">
     <h2>Kontak</h2>
