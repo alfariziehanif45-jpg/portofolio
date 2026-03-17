@@ -237,33 +237,31 @@ nav a:hover {
     max-height: 80%;
     border-radius: 10px;
 }
-/* ===== PROJECT ===== */
+/* ===== PROJECT (VERTIKAL) ===== */
 .project {
-    display: flex;
-    align-items: center;
-    gap: 25px;
+    display: block;
     background: #1e293b;
-    padding: 20px;
-    margin: 20px auto;
+    margin: 30px auto;
     width: 80%;
     border-radius: 15px;
+    overflow: hidden;
     transition: 0.3s;
 }
 
 .project:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
-/* foto kiri */
+/* gambar full atas */
 .project img {
-    width: 150px;
-    height: 120px;
+    width: 100%;
+    height: 220px;
     object-fit: cover;
-    border-radius: 10px;
 }
 
-/* teks kanan */
+/* teks bawah */
 .project-text {
+    padding: 20px;
     text-align: left;
 }
 
@@ -277,20 +275,70 @@ nav a:hover {
 }
 @media (max-width: 768px) {
     .project {
-        flex-direction: column;
-        text-align: center;
+        width: 95%;
+    }
+
+    .project img {
+        height: 180px;
     }
 
     .project-text {
         text-align: center;
     }
+}
+/* ===== INTRO ===== */
+#intro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #020617;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 1s ease forwards;
+    animation-delay: 3s;
+}
 
-    .project img {
-        width: 100%;
-        height: auto;
+#intro h1 {
+    font-size: 40px;
+    color: cyan;
+}
+
+#intro p {
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+/* animasi keluar */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+#intro h1 {
+    border-right: 2px solid cyan;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 2s steps(20) forwards;
+}
+
+@keyframes typing {
+    to {
+        width: 220px;
     }
 }
 </style>
+
+<!-- Intro Screen -->
+<div id="intro">
+    <h1>Welcome to HanifDev</h1>
+    <p>Portfolio Website</p>
+</div>
 
 </head>
 <body>
@@ -421,26 +469,24 @@ nav a:hover {
 
     <!-- Game 1 -->
     <div class="project">
-        <img src="game1.jpg" alt="Game Dungeon">
+        <img src="game1.jpg" onclick="openImage(this.src)">
         <div class="project-text">
             <h3>Game Dungeon Adventure (C++)</h3>
             <p>
                 Game petualangan berbasis C++ dimana pemain menjelajahi dungeon,
-                melawan musuh, dan menemukan item tersembunyi. Setiap level
-                memiliki tantangan berbeda yang menguji strategi dan keberanian pemain.
+                melawan musuh, dan menemukan item tersembunyi.
             </p>
         </div>
     </div>
 
     <!-- Game 2 -->
     <div class="project">
-        <img src="game2.jpg" alt="Game Story">
+        <img src="game2.jpg" onclick="openImage(this.src)">
         <div class="project-text">
             <h3>Game Story Choice (C++)</h3>
             <p>
                 Game berbasis cerita interaktif dimana setiap pilihan pemain
-                akan menentukan alur cerita dan ending yang didapat. Game ini
-                memiliki banyak kemungkinan akhir yang berbeda.
+                menentukan alur cerita dan ending yang didapat.
             </p>
         </div>
     </div>
@@ -475,6 +521,12 @@ function openImage(src) {
 function closeImage() {
     document.getElementById("popup").style.display = "none";
 }
+</script>
+
+<script>
+setTimeout(() => {
+    document.getElementById("intro").style.display = "none";
+}, 4000);
 </script>
 
 </body>
