@@ -162,6 +162,63 @@ nav a:hover {
 .card ul li {
     margin-bottom: 8px;
 }
+/* ===== ORGANISASI ===== */
+
+.org {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: #1e293b;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+/* efek hover */
+.org:hover {
+    transform: scale(1.03);
+}
+
+/* foto organisasi (kiri) */
+.org img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px; /* kotak sedikit halus */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* teks organisasi (kanan) */
+.org-text {
+    text-align: left;
+}
+
+.org-text h3 {
+    margin-bottom: 10px;
+    color: cyan;
+}
+
+.org-text p {
+    line-height: 1.6;
+}
+@media (max-width: 768px) {
+
+    .org {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .org img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .org-text {
+        text-align: center;
+    }
+}
 </style>
 
 </head>
@@ -241,7 +298,51 @@ nav a:hover {
     <div class="card">HTML</div>
     <div class="card">DEV C++</div>
     <div class="card">Bahasa inggris</div>
-</section> 
+</section>
+
+<!-- Organisasi -->
+<section class="section">
+    <h2>Organisasi yang Saya Ikuti</h2>
+
+    <p><b>Total Organisasi: 3</b></p>
+
+    <!-- ROHIS -->
+    <div class="org">
+        <img src="rohis.jpg" alt="ROHIS">
+        <div class="org-text">
+            <h3>ROHIS (Rohani Islam)</h3>
+            <p>
+                Aktif dalam kegiatan keagamaan di sekolah serta ikut berkontribusi
+                dalam acara keislaman dan pembinaan karakter siswa.
+            </p>
+        </div>
+    </div>
+
+    <!-- PMR -->
+    <div class="org">
+        <img src="pmr.jpg" alt="PMR">
+        <div class="org-text">
+            <h3>PMR (Palang Merah Remaja)</h3>
+            <p>
+                Berpartisipasi dalam kegiatan sosial dan kesehatan, serta belajar
+                tentang pertolongan pertama dan kepedulian terhadap sesama.
+            </p>
+        </div>
+    </div>
+
+    <!-- BEM -->
+    <div class="org">
+        <img src="bem.jpg" alt="BEM">
+        <div class="org-text">
+            <h3>BEM Relasi</h3>
+            <p>
+                Aktif di bidang hubungan eksternal kampus, menjalin relasi dengan
+                organisasi lain serta berkontribusi dalam kegiatan kemahasiswaan.
+            </p>
+        </div>
+    </div>
+
+</section>
 
 <!-- Project -->
 <section id="project" class="section">
