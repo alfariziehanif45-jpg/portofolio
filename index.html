@@ -75,6 +75,35 @@ footer {
     padding: 20px;
     background: #020617;
 }
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.profile img {
+    width: 180px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px cyan;
+}
+
+.profile-text {
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-text {
+        text-align: center;
+    }
+}
 </style>
 
 </head>
@@ -96,15 +125,19 @@ footer {
 <section class="section">
     <h2>Profil Saya</h2>
 
-    <div class="card">
-        <img src="foto.jpg" alt="Foto Profil" style="width:150px; border-radius:50%; margin-bottom:15px;">
+    <div class="profile">
+        <!-- Foto -->
+        <img src="foto.jpg" alt="Foto Profil">
 
-        <h3>Hanif Alfarizie</h3>
-        <p>Umur: 20 Tahun</p>
-        <p>Tahun Kelahiran: 2005</p>
+        <!-- Data -->
+        <div class="profile-text">
+            <h3>Hanif Alfarizie</h3>
+            <p>Umur: 20 Tahun</p>
+            <p>Tahun Kelahiran: 2005</p>
 
-        <h3>Keahlian</h3>
-        <p>HTML, CSS, PHP, MySQL</p>
+            <h3>Keahlian</h3>
+            <p>HTML, CSS, PHP, MySQL</p>
+        </div>
     </div>
 </section>
 
